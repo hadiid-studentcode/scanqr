@@ -1,6 +1,5 @@
-import {success} from "./sweetalert.js";
-import { supabase } from "./model.js";
-
+import { success } from "./sweetalert.js";
+import { getdata } from "./model.js";
 
 function domReady(fn) {
   if (
@@ -18,11 +17,12 @@ domReady(function () {
   async function onScanSuccess(decodeText, decodeResult) {
     alert(1);
 
-    
-let { data: absensi, error } = await supabase.from("absensi").select("*");
-
-console.log(absensi[0].id);
-          
+    const dataAbsensi = await getdata();
+    if (dataAbsensi) {
+      console.log(dataAbsensi[0].id);
+    } else {
+      console.log("Gagal mengambil data absensi.");
+    }
 
     success();
 
