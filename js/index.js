@@ -53,11 +53,11 @@ domReady(function () {
            icon: "success",
          });
        } else {
-        //  Swal.fire({
-        //    title: "Warning!",
-        //    text: "Scanning failed.",
-        //    icon: "warning",
-        //  });
+         Swal.fire({
+           title: "Warning!",
+           text: "Scanning failed.",
+           icon: "warning",
+         });
        }
 
     }, 2000); // 2000 milliseconds = 20 seconds
