@@ -4,8 +4,6 @@ import { getdataKelolaAbsensi } from "./model/kelolaAbsensiModel.js";
 
 moment.locale("id");
 
-
-
 function domReady(fn) {
   if (
     document.readyState === "complete" ||
@@ -34,32 +32,27 @@ domReady(function () {
 
     const timenow = moment().format("HH:mm:ss");
 
-    
     success();
 
-    setTimeout( async function () {
-     
-    const result = await Insertdata(
-      idGuest,
-      qrGuest,
-      idKelolaAbsensiTerbaru,
-      datenow,
-      timenow
-    );
-       if (result) {
-        alert('Data inserted successfully');
-       } else {
-         Swal.fire({
-           title: "Warning!",
-           text: "Scanning failed.",
-           icon: "warning",
-         });
-       }
-
+    setTimeout(async function () {
+      const result = await Insertdata(
+        idGuest,
+        qrGuest,
+        idKelolaAbsensiTerbaru,
+        datenow,
+        timenow
+      );
+      if (result) {
+        alert("Data inserted successfully");
+        location.reload();
+      } else {
+        Swal.fire({
+          title: "Warning!",
+          text: "Scanning failed.",
+          icon: "warning",
+        });
+      }
     }, 2000); // 2000 milliseconds = 20 seconds
-
-
- 
 
     //    MASUKKAN DATANYA DISINI
   }
