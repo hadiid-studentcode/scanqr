@@ -1,5 +1,9 @@
 import { success } from "./sweetalert.js";
-import { Insertdata } from "./model/absensiMode.js";
+import { Insertdata } from "./model/absensiModel.js";
+import { getdataKelolaAbsensi } from "./model/kelolaAbsensiModel.js";
+
+moment.locale("id");
+
 
 function domReady(fn) {
   if (
@@ -17,7 +21,20 @@ domReady(function () {
   async function onScanSuccess(decodeText, decodeResult) {
     // Swal.fire("SweetAlert2 is working!");
 
-    const result = await Insertdata();
+    const parts = decodeText.split("-");
+    const idGuest = parts[0];
+    const qrGuest = parts[1];
+
+    const resultKelolaAbsensi = await getdataKelolaAbsensi();
+
+    const idKelolaAbsensiTerbaru = resultKelolaAbsensi.slice(-1)[0].id;
+
+    const datenow = moment().format("YYYY-MM-DD");
+
+    const timenow = moment().format("HH:mm:ss");
+    
+
+    const result = await Insertdata(idGuest, qrGuest, idKelolaAbsensiTerbaru, datenow, timenow);
 
     if (result) {
       Swal.fire({
