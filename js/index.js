@@ -60,7 +60,7 @@ domReady(function () {
         //  });
        }
 
-    }, 3000); // 3000 milliseconds = 5 seconds
+    }, 2000); // 2000 milliseconds = 20 seconds
 
 
  

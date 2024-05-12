@@ -4,7 +4,7 @@ export function success() {
       Swal.fire({
         title: "Loading Scanning",
         html: "I will close in <b></b> milliseconds.",
-        timer: 3000,
+        timer: 4000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
