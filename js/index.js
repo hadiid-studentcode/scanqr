@@ -26,6 +26,7 @@ domReady(function () {
     }
 
     success();
+    return window.location.reload();
 
     //    MASUKKAN DATANYA DISINI
   }
