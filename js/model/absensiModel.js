@@ -21,7 +21,7 @@ export async function Insertdata(idGuest,qrGuest,idKelolaAbsensiTerbaru,datenow,
       .insert([
         {
           id_guests: idGuest,
-          kode_absensi: idKelolaAbsensiTerbaru+qrGuest,
+          kode_absensi: idKelolaAbsensiTerbaru+'-'+qrGuest,
           date: datenow,
           time: timenow,
           status: "Hadir",
