@@ -1,5 +1,5 @@
 import { success } from "./sweetalert.js";
-import { getdata } from "./model.js";
+import { Insertdata } from "./model/absensiMode.js";
 
 function domReady(fn) {
   if (
@@ -15,13 +15,14 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   async function onScanSuccess(decodeText, decodeResult) {
-    alert(1);
+   
+    // Swal.fire("SweetAlert2 is working!");
 
-    const dataAbsensi = await getdata();
-    if (dataAbsensi) {
-      console.log(dataAbsensi[0].id);
+    const result = await Insertdata();
+    if (result) {
+        alert("Data berhasil dimasukkan");
     } else {
-      console.log("Gagal mengambil data absensi.");
+        alert("Data gagal dimasukkan");
     }
 
     success();

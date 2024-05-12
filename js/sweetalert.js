@@ -2,9 +2,9 @@ export function success() {
 
       let timerInterval;
       Swal.fire({
-        title: "Auto close alert!",
+        title: "Loading Scanning",
         html: "I will close in <b></b> milliseconds.",
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
