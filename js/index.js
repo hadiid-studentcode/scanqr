@@ -15,18 +15,23 @@ function domReady(fn) {
 domReady(function () {
   // If found you qr code
   async function onScanSuccess(decodeText, decodeResult) {
-   
     // Swal.fire("SweetAlert2 is working!");
 
     const result = await Insertdata();
-    if (result) {
-        alert("Data berhasil dimasukkan");
-    } else {
-        alert("Data gagal dimasukkan");
-    }
 
-    success();
-    
+    if (result) {
+      Swal.fire({
+        title: "Success!",
+        text: "Scanning success.",
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        title: "Warning!",
+        text: "Scanning failed.",
+        icon: "warning",
+      });
+    }
 
     //    MASUKKAN DATANYA DISINI
   }
