@@ -5,6 +5,7 @@ import { getdataKelolaAbsensi } from "./model/kelolaAbsensiModel.js";
 moment.locale("id");
 
 
+
 function domReady(fn) {
   if (
     document.readyState === "complete" ||
@@ -32,23 +33,37 @@ domReady(function () {
     const datenow = moment().format("YYYY-MM-DD");
 
     const timenow = moment().format("HH:mm:ss");
+
     
+    success();
 
-    const result = await Insertdata(idGuest, qrGuest, idKelolaAbsensiTerbaru, datenow, timenow);
+    setTimeout( async function () {
+     
+    const result = await Insertdata(
+      idGuest,
+      qrGuest,
+      idKelolaAbsensiTerbaru,
+      datenow,
+      timenow
+    );
+       if (result) {
+         Swal.fire({
+           title: "Success!",
+           text: "Scanning success.",
+           icon: "success",
+         });
+       } else {
+        //  Swal.fire({
+        //    title: "Warning!",
+        //    text: "Scanning failed.",
+        //    icon: "warning",
+        //  });
+       }
 
-    if (result) {
-      Swal.fire({
-        title: "Success!",
-        text: "Scanning success.",
-        icon: "success",
-      });
-    } else {
-      Swal.fire({
-        title: "Warning!",
-        text: "Scanning failed.",
-        icon: "warning",
-      });
-    }
+    }, 3000); // 3000 milliseconds = 5 seconds
+
+
+ 
 
     //    MASUKKAN DATANYA DISINI
   }
