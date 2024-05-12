@@ -47,11 +47,7 @@ domReady(function () {
       timenow
     );
        if (result) {
-         Swal.fire({
-           title: "Success!",
-           text: "Scanning success.",
-           icon: "success",
-         });
+        alert('Data inserted successfully');
        } else {
          Swal.fire({
            title: "Warning!",
